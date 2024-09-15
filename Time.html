@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
         
         body {
-            background: url('src/Background.jpg') no-repeat center center fixed;
+            background: url('https://media.tenor.com/JD7e1QQ6bCwAAAAC/aesthetic-pink.gif') no-repeat center center fixed;
             background-size: cover;
             color: white;
             display: flex;
@@ -93,17 +93,17 @@
   <div class="footer"> <a href="Home.html"> <i class="fas fa-arrow-left"></i> <span>Kembali</span> </a> 
   </div> 
   <script>
-        const startDate = new Date("2023-07-21T00:00:00");
+      const startDate = new Date("2023-08-01T00:00:00");
 
-        function updateTimer() {
-            const now = new Date();
-            const timeElapsed = now - startDate;
+function updateTimer() {
+    const now = new Date();
+    const timeElapsed = now - startDate;
 
-            const days = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeElapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeElapsed % (1000 * 60)) / 1000);
-
+    const days = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeElapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeElapsed % (1000 * 60)) / 1000);
+ 
             document.getElementById("timer").innerHTML = `
                 <div class="time-unit">
                     <div class="time-value">${days}</div>
