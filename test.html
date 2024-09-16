@@ -3,17 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollable Image Gallery</title>
+    <title>Centered Scrollable Image Gallery</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body, html {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
             background-color: #f0f0f0;
+        }
+        .page-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .gallery-container {
             position: relative;
-            max-width: 100%;
+            width: 340px;
+            height: 240px;
             overflow: hidden;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -21,30 +31,22 @@
         }
         .gallery {
             display: flex;
+            height: 100%;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
-            padding: 20px;
         }
         .gallery::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-        }
-        .gallery::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-        .gallery::-webkit-scrollbar-track {
-            background: #ddd;
-            border-radius: 10px;
+            display: none;
         }
         .gallery-item {
             flex: 0 0 auto;
             width: 300px;
             height: 200px;
-            scroll-snap-align: start;
-            margin-right: 20px;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+            margin: 20px;
             border-radius: 5px;
             overflow: hidden;
         }
@@ -63,6 +65,7 @@
             padding: 10px;
             cursor: pointer;
             transition: background-color 0.3s;
+            z-index: 10;
         }
         .nav-button:hover {
             background-color: rgba(255, 255, 255, 0.9);
@@ -76,27 +79,42 @@
     </style>
 </head>
 <body>
-    <div class="gallery-container">
-        <div class="gallery" id="gallery">
-            <div class="gallery-item"><img src="src/Nje.jpg" alt="Image 1"></div>
-            <div class="gallery-item"><img src="src/njee.jpg" alt="Image 2"></div>
-            <div class="gallery-item"><img src="src/pebi.jpg" alt="Image 3"></div>
-            <div class="gallery-item"><img src="src/njeee.jpg" alt="Image 4"></div>
-            <div class="gallery-item"><img src="src/pebii.jpg" alt="Image 5"></div>
+    <div class="page-container">
+        <div class="gallery-container">
+            <div class="gallery" id="gallery">
+                <div class="gallery-item"><img src="/src/KamuDanAku.jpg" alt="Image 1"></div>
+                <div class="gallery-item"><img src="/src/Nje.jpg" alt="Image 2"></div>
+                <div class="gallery-item"><img src="/src/Njee.jpg" alt="Image 3"></div>
+                <div class="gallery-item"><img src="/src/Njeee.jpg" alt="Image 4"></div>
+                <div class="gallery-item"><img src="/src/Pebi.jpg" alt="Image 5"></div>
+            </div>
+            <button class="nav-button prev" onclick="scroll(-1)">&lt;</button>
+            <button class="nav-button next" onclick="scroll(1)">&gt;</button>
         </div>
-        <button class="nav-button prev" onclick="scroll(-1)">&lt;</button>
-        <button class="nav-button next" onclick="scroll(1)">&gt;</button>
     </div>
 
     <script>
         function scroll(direction) {
             const gallery = document.getElementById('gallery');
-            const scrollAmount = 320; // Adjust based on image width + margin
+            const scrollAmount = 340; // Width of gallery-item + its margin
             gallery.scrollBy({
                 left: direction * scrollAmount,
                 behavior: 'smooth'
             });
         }
+
+        // Center the first image on load
+        window.addEventListener('load', () => {
+            const gallery = document.getElementById('gallery');
+            const firstItem = gallery.firstElementChild;
+            if (firstItem) {
+                firstItem.scrollIntoView({
+                    behavior: 'auto',
+                    block: 'nearest',
+                    inline: 'center'
+                });
+            }
+        });
     </script>
 </body>
 </html>
