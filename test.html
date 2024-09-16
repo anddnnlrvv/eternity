@@ -14,6 +14,7 @@
         }
         .page-container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100%;
@@ -55,14 +56,12 @@
             height: 100%;
             object-fit: cover;
         }
+        .audio-controls {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <!-- Background Music -->
-    <audio autoplay loop controls="hidden">
-        <source src="src/NjeFavMusic.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
 
     <div class="page-container">
         <div class="gallery-container">
@@ -73,6 +72,14 @@
                 <div class="gallery-item"><img src="src/Njeee.jpg" alt="Image 4"></div>
                 <div class="gallery-item"><img src="src/Pebi.jpg" alt="Image 5"></div>
             </div>
+        </div>
+
+        <!-- Audio controls below the gallery -->
+        <div class="audio-controls">
+            <audio controls autoplay loop>
+                <source src="src/NjeFavMusic.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
         </div>
     </div>
 
