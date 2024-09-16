@@ -22,24 +22,52 @@
     }
     
     .container {
-        display: flex;
-        width: max-content;
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 35%; /* Decreased width to make images smaller */
+        max-width: 400px; /* Adjusted max-width */
+        padding-bottom: 20px;
+        align-items: center;
+        margin-top: 100px;
     }
-
-    .horizontal-scroll {
+    
+    .container img {
+        width: 100%; 
+        height: 135px; /* Reduced height to make images smaller */
+        object-fit: cover; 
+        border-radius: 10px;
+    }
+    
+    .footer {
+        padding: 20px;
+        text-align: center;
         width: 100%;
-        overflow-x: scroll;
-        scrollbar-color: transparent transparent;
     }
-
-    .horizontal-scroll::-webkit-scrollbar {
-        display: none;
+    
+    .footer a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        font-family: 'Open Sans', sans-serif;
+    }
+    
+    .footer a i {
+        margin-bottom: 5px;
+        font-size: 24px;
+    }
+    
+    .footer a span {
+        font-size: 16px;
+        font-family: 'Open Sans', sans-serif; 
     }
   </style> 
 </head> 
 <body> 
-  <div className="horizontal-scroll">
   <div class="container">
     <img src="src/KamuDanAku.jpg" alt="Photo"> 
     <img src="src/Profile.jpg" alt="Photo">
@@ -50,7 +78,6 @@
     <img src="src/Pebiii.png" alt="Photo 5"> 
     <img src="src/Njeee.jpg" alt="Photo 6">
   </div>
-      </div>
   <div class="footer"> 
     <a href="Home.html"> 
       <i class="fas fa-arrow-left"></i> 
